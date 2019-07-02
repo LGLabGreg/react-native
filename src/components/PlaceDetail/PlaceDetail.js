@@ -4,7 +4,7 @@ import { Modal, View, Image, Text, Button, StyleSheet } from 'react-native';
 const placeDetail = ({ selectedPlace, onPlaceDelete, onClose }) => {
   return (
     <Modal animationType="slide" visible={true} style={styles.modal} onRequestClose={onClose}>
-      <View>
+      <View style={styles.modalInner}>
         <Image source={selectedPlace.image} style={styles.image} />
         <Text style={styles.text}>{selectedPlace.name}</Text>
         <View>
@@ -19,6 +19,9 @@ const placeDetail = ({ selectedPlace, onPlaceDelete, onClose }) => {
 const styles = StyleSheet.create({
   modal: {
     marginTop: 20
+  },
+  modalInner: {
+    padding: 20
   },
   image: {
     width: '100%',
