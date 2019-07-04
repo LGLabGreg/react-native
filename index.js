@@ -1,3 +1,4 @@
+/*
 import React from 'react';
 import { AppRegistry } from 'react-native';
 import { Provider } from 'react-redux';
@@ -16,3 +17,20 @@ const RNRedux = () => (
 );
 
 AppRegistry.registerComponent(appName, () => RNRedux);
+*/
+
+import { Navigation } from "react-native-navigation";
+import App from "./App";
+
+Navigation.registerComponent('navigation.playground.WelcomeScreen', () => App);
+
+Navigation.events().registerAppLaunchedListener(() => {
+  Navigation.setRoot({
+    root: {
+      component: {
+        name: "navigation.playground.WelcomeScreen"
+
+      }
+    }
+  });
+});

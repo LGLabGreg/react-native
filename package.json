@@ -5,12 +5,13 @@
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
     "test": "jest",
-    "android": "react-native run-android",
+    "android": "cd ./android && ./gradlew app:assembleDebug && ./gradlew installDebug",
     "prettier-watch": "onchange \"**/*.{js}\" -- prettier --print-width 100 --single-quote --write {{changed}}"
   },
   "dependencies": {
     "react": "16.8.3",
     "react-native": "0.59.9",
+    "react-native-navigation": "^2.22.3",
     "react-native-vector-icons": "^6.6.0",
     "react-redux": "^7.1.0",
     "redux": "^4.0.1"
