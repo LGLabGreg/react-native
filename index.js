@@ -1,35 +1,20 @@
-/*
-import React from 'react';
-import { AppRegistry } from 'react-native';
-import { Provider } from 'react-redux';
+import { Navigation } from 'react-native-navigation';
+import AuthScreen from './src/screens/Auth/Auth';
+import SharePlaceScreen from './src/screens/SharePlace/SharePlace';
+import FindPlaceScreen from './src/screens/FindPlace/FindPlace';
 
-import App from './App';
-import { name as appName } from './app.json';
-
-import configureStore from './src/store/configureStore';
-
-const store = configureStore();
-
-const RNRedux = () => (
-  <Provider store={store}>
-    <App />
-  </Provider>
-);
-
-AppRegistry.registerComponent(appName, () => RNRedux);
-*/
-
-import { Navigation } from "react-native-navigation";
-import App from "./App";
-
-Navigation.registerComponent('navigation.playground.WelcomeScreen', () => App);
+Navigation.registerComponent('app.AuthScreen', () => AuthScreen);
+Navigation.registerComponent('app.SharePlaceScreen', () => SharePlaceScreen);
+Navigation.registerComponent('app.FindPlaceScreen', () => FindPlaceScreen);
 
 Navigation.events().registerAppLaunchedListener(() => {
   Navigation.setRoot({
     root: {
       component: {
-        name: "navigation.playground.WelcomeScreen"
-
+        name: 'app.AuthScreen',
+        passProps: {
+          title: 'Login'
+        }
       }
     }
   });
